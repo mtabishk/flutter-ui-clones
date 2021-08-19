@@ -1,6 +1,6 @@
 # instagram_clone
 
-![](../images/instagram_clone.png)
+![](../images/instagram_clone_img.png)
 
 A new Flutter project.
 
