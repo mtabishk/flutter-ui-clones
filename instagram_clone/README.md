@@ -1,5 +1,7 @@
 # instagram_clone
 
+![](../images/instagram_clone.png)
+
 A new Flutter project.
 
 ## Getting Started
