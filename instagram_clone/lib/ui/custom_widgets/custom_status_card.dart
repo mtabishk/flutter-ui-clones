@@ -7,6 +7,7 @@ class CustomStatusCard extends StatelessWidget {
       elevation: 2,
       shape: CircleBorder(),
       child: Container(
+        margin: EdgeInsets.all(1),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(45),
           border: Border.all(

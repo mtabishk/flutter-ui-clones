@@ -27,39 +27,34 @@ class Home extends StatelessWidget {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: SizedBox(
+      body: Container(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(
                 height: 90,
                 child: ListView.builder(
-                  physics: ClampingScrollPhysics(),
-                  shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   itemCount: 8,
                   itemBuilder: (BuildContext context, int index) =>
                       CustomStatusCard(),
                 ),
               ),
-            ),
-            Divider(
-              thickness: 1.0,
-            ),
-            SizedBox(
-              height: 540,
-              child: ListView(
-                children: [
-                  CustomPostTile(),
-                  CustomPostTile(),
-                  CustomPostTile(),
-                  CustomPostTile(),
-                  Text("Loading..."),
-                ],
+              Divider(
+                thickness: 1.0,
               ),
-            ),
-          ],
+              Flexible(
+                child: ListView.builder(
+                  physics: ClampingScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: 4,
+                  itemBuilder: (BuildContext context, int index) =>
+                      CustomPostTile(),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
