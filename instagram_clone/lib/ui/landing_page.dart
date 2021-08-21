@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/ui/home.dart';
+import 'package:instagram_clone/ui/home_page.dart';
 
 class LandingPage extends StatefulWidget {
   @override
@@ -10,16 +10,16 @@ class _LandingPageState extends State<LandingPage> {
   int _index = 0;
   @override
   Widget build(BuildContext context) {
-    Widget child = Home();
+    Widget child = HomePage();
     switch (_index) {
       case 0:
-        child = Home();
+        child = HomePage();
         break;
       case 1:
-        child = Home();
+        child = HomePage();
         break;
       case 2:
-        child = Home();
+        child = HomePage();
         break;
     }
     return Scaffold(
