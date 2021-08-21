@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/ui/home_page.dart';
+import 'package:instagram_clone/ui/screens/home_page.dart';
 
 class LandingPage extends StatefulWidget {
   @override

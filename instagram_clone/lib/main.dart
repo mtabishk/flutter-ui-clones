@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:instagram_clone/ui/landing_page.dart';
+import 'package:instagram_clone/ui/screens/landing_page.dart';
 
 void main() {
   runApp(MyApp());
