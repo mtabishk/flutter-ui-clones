@@ -68,15 +68,28 @@ class CustomPostTile extends StatelessWidget {
                 ),
               ),
               SizedBox(width: 4),
-              Text("Liked by "),
-              Text(
-                "msamik",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              Text("and "),
-              Text(
-                "1,657,557 others ",
-                style: TextStyle(fontWeight: FontWeight.bold),
+              RichText(
+                text: TextSpan(
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
+                  children: [
+                    TextSpan(text: "Liked by "),
+                    TextSpan(
+                      text: "msamik ",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextSpan(text: "and "),
+                    TextSpan(
+                      text: "1,657,557 others ",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
