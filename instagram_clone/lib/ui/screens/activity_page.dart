@@ -7,7 +7,8 @@ class ActivityPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('activity page'),
+        elevation: 0,
+        title: Text('Activity'),
       ),
     );
   }

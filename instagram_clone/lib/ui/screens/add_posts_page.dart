@@ -31,6 +31,7 @@ class AddPostsPage extends StatelessWidget {
                 color: Colors.black,
               ),
               GridView(
+                physics: ScrollPhysics(),
                 shrinkWrap: true,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
