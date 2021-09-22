@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
+class SubscriptionsPage extends StatelessWidget {
+  const SubscriptionsPage({Key? key}) : super(key: key);
 
-class _MyHomePageState extends State<MyHomePage> {
+  static List<String> images = [
+    "avatar_0.jpg",
+    "avatar_1.jpg",
+    "avatar_2.jpg",
+    "avatar_3.jpg",
+    "avatar_0.jpg",
+    "avatar_1.jpg",
+    "avatar_2.jpg",
+    "avatar_3.jpg",
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +40,29 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Divider(thickness: 1.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                SizedBox(
+                  height: 80,
+                  width: MediaQuery.of(context).size.width * 0.89,
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 8,
+                      itemBuilder: (BuildContext context, int index) =>
+                          _buildStatusCard(image: images[index]),
+                    ),
+                  ),
+                ),
+                Text("ALL",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue,
+                    )),
+              ],
+            ),
             Padding(
               padding: EdgeInsets.all(2.0),
               child: SizedBox(
@@ -42,9 +72,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
                     children: [
-                      _buildExplore(),
-                      SizedBox(width: 8.0),
-                      VerticalDivider(thickness: 1.0),
                       SizedBox(width: 8.0),
                       _buildRoundedContainers('All'),
                       SizedBox(width: 8.0),
@@ -68,49 +95,30 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             SizedBox(height: 4.0),
             _buildVideoView(
-                imageName: 'thumbnail_1.jpg',
-                duration: '9:54',
-                title: 'Goodbye FaZe Kay | A New Beginning',
-                subtitle: 'Kay · 603K views · 2 days ago',
-                avatarImage: 'avatar_1.jpg'),
-            _buildVideoView(
-                imageName: 'thumbnail_0.jpg',
-                duration: '4:40',
-                title:
-                    'Drake ft. Future and Young Thug - Way 2 Sexy (Official Video)',
-                subtitle: 'Drake · 31M views · 2 weeks ago',
-                avatarImage: 'avatar_0.jpg'),
-            _buildVideoView(
                 imageName: 'thumbnail_2.jpg',
-                duration: '12:25',
                 title: 'Dope Tech: Boston Dynamics Robot Dog!',
                 subtitle: 'Marques Brownlee · 5.3M views · 1 year ago',
                 avatarImage: 'avatar_2.jpg'),
             _buildVideoView(
                 imageName: 'thumbnail_3.jpg',
-                duration: '1:16',
                 title: '2021 Apple TV 4K Review: 1 Month Later',
                 subtitle: 'SpawnPoiint · 223K views · 2 months ago',
                 avatarImage: 'avatar_3.jpg'),
+            _buildVideoView(
+                imageName: 'thumbnail_1.jpg',
+                title: 'Goodbye FaZe Kay | A New Beginning',
+                subtitle: 'Kay · 603K views · 2 days ago',
+                avatarImage: 'avatar_1.jpg'),
+            _buildVideoView(
+                imageName: 'thumbnail_0.jpg',
+                title:
+                    'Drake ft. Future and Young Thug - Way 2 Sexy (Official Video)',
+                subtitle: 'Drake · 31M views · 2 weeks ago',
+                avatarImage: 'avatar_0.jpg'),
           ],
         ),
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
-    );
-  }
-
-  Widget _buildExplore() {
-    return Container(
-      color: Colors.grey[800],
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
-        child: Row(
-          children: [
-            Icon(Icons.explore_outlined),
-            Text('Explore'),
-          ],
-        ),
-      ),
     );
   }
 
@@ -134,7 +142,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _buildVideoView(
       {required String imageName,
-      required String duration,
       required title,
       required subtitle,
       required avatarImage}) {
@@ -152,12 +159,12 @@ class _MyHomePageState extends State<MyHomePage> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Opacity(
-              opacity: 0.8,
+              opacity: 1,
               child: Container(
-                color: Colors.black,
+                color: Colors.red,
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(4.0, 2.0, 4.0, 2.0),
-                  child: Text(duration),
+                  child: Text("LIVE"),
                 ),
               ),
             ),
@@ -175,6 +182,24 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildStatusCard({required String image}) {
+    return Card(
+      elevation: 2,
+      shape: CircleBorder(),
+      child: Container(
+        margin: EdgeInsets.all(1),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(45),
+        ),
+        child: ClipOval(
+          child: Image.asset(
+            'assets/images/$image',
+          ),
+        ),
+      ),
     );
   }
 }

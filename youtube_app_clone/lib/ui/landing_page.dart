@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_app_clone/ui/home.dart';
+import 'package:youtube_app_clone/ui/library_page.dart';
+import 'package:youtube_app_clone/ui/subscriptions_page.dart';
 
 class LandingPage extends StatefulWidget {
   @override
@@ -18,19 +20,19 @@ class _LandingPageState extends State<LandingPage> {
         break;
       case 1:
         child = Container();
-        print("search");
+        print("shorts");
         break;
       case 2:
         child = Container();
-        print("add posts");
+        print("add");
         break;
       case 3:
-        child = Container();
-        print("activity");
+        child = SubscriptionsPage();
+        print("subscriptions");
         break;
       case 4:
-        child = Container();
-        print("profile");
+        child = LibraryPage();
+        print("library");
         break;
     }
     return Scaffold(
@@ -41,6 +43,8 @@ class _LandingPageState extends State<LandingPage> {
         iconSize: 24,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white,
+        selectedFontSize: 12.0,
+        unselectedFontSize: 12.0,
         type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
