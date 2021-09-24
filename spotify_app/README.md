@@ -1,5 +1,12 @@
 # spotify_app
 
+![](../images/spotify_clone/spotify_clone1.png)
+
+![](../images/spotify_clone/spotify_clone2.png)
+
+![](../images/spotify_clone/spotify_clone3.png)
+
+
 A new Flutter project.
 
 ## Getting Started
