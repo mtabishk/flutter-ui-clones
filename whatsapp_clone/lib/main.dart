@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/constants.dart';
 import 'package:whatsapp_clone/ui/home_page.dart';
 
 void main() {
@@ -14,8 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Whatsapp',
       theme: ThemeData(
-        primarySwatch: Colors.green,
-        primaryColor: Colors.white,
+        primarySwatch: green,
       ),
       home: MyHomePage(),
     );
