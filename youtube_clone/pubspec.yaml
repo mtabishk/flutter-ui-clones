@@ -1,4 +1,4 @@
-name: whatsapp_clone
+name: youtube_clone
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -57,6 +57,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/icons/
     - assets/images/
   #   - images/a_dot_ham.jpeg
 
@@ -71,7 +72,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
+  fonts:
+    - family: YTSans
+      fonts:
+        - asset: assets/fonts/youtube-sans-bold.ttf
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
