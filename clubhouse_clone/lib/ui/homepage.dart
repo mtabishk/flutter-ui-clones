@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
-import 'package:flutter/widgets.dart';
-
 class MyHomePage extends StatefulWidget {
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
+      drawer: Drawer(),
       appBar: AppBar(
         elevation: 0.0,
         leading: Icon(Icons.search, size: 28),
@@ -35,6 +37,31 @@ class _MyHomePageState extends State<MyHomePage> {
               _buildRoomContainer(),
               SizedBox(height: 16.0),
               _buildRoomContainer(),
+              SizedBox(height: 16.0),
+              Text(
+                "UPCOMING EVENTS",
+                style: TextStyle(
+                    fontSize: 18.0,
+                    color: Colors.grey[600],
+                    fontWeight: FontWeight.w700),
+              ),
+              SizedBox(
+                height: 200,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                  itemCount: 4,
+                  padding: EdgeInsets.all(8),
+                  itemBuilder: (BuildContext context, int index) => Row(
+                    children: [
+                      _buildUpcomingEventsContainer(),
+                      SizedBox(
+                        width: 16.0,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
               SizedBox(height: 16.0),
               _buildRoomContainer(),
               SizedBox(height: 16.0),
@@ -132,6 +159,90 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  Widget _buildUpcomingEventsContainer() {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.grey[300],
+        borderRadius: BorderRadius.circular(16.0),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Lets Clip ✂  New feature 🔥",
+                  style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w800),
+                ),
+                Icon(Icons.more_horiz),
+              ],
+            ),
+            Row(
+              children: [
+                SizedBox(
+                  height: 100,
+                  width: 100,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Edin Ross",
+                        style: TextStyle(
+                            fontSize: 18.0, fontWeight: FontWeight.w400)),
+                    Text("Tommy Lee",
+                        style: TextStyle(
+                            fontSize: 18.0, fontWeight: FontWeight.w400)),
+                    Text("Alpha",
+                        style: TextStyle(
+                            fontSize: 18.0, fontWeight: FontWeight.w400)),
+                    Text("Von Neuman",
+                        style: TextStyle(
+                            fontSize: 18.0, fontWeight: FontWeight.w400)),
+                    RichText(
+                      text: TextSpan(
+                        style: TextStyle(
+                          color: Colors.grey[600],
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        children: [
+                          TextSpan(
+                            text: "200 ",
+                          ),
+                          WidgetSpan(
+                            child: Icon(
+                              Icons.person,
+                              color: Colors.grey[600],
+                            ),
+                          ),
+                          TextSpan(
+                            text: " / ",
+                          ),
+                          TextSpan(
+                            text: "14 ",
+                          ),
+                          WidgetSpan(
+                            child: Icon(
+                              Icons.insert_comment,
+                              color: Colors.grey[600],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget _buildBottomBar() {
     return Padding(
       padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0.0),
@@ -143,9 +254,14 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Icon(
-                  Icons.apps,
-                  size: 32.0,
+                IconButton(
+                  icon: Icon(
+                    Icons.apps,
+                    size: 32.0,
+                  ),
+                  onPressed: () {
+                    _scaffoldKey.currentState?.openDrawer();
+                  },
                 ),
                 TextButton(
                   child: Row(
