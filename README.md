@@ -1,4 +1,4 @@
-# UI Clones using Flutter:
+# UI Clones using Flutter
 
 1. [Instagram](https://github.com/mtabishk/flutter-ui-clones/tree/master/instagram_clone)
 2. [Spotify](https://github.com/mtabishk/flutter-ui-clones/tree/master/spotify_clone)
